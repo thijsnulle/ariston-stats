@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <h1>ARISTON '80 STATS</h1>
+    </nav>
+
+    <div class="container">
+        <h3>Statistiek:
+            <select name="statistic" id="stat-select">
+                <option value="goals" selected> Doelpunten </option>
+                <option value="assists"> Assists </option>
+                <option value="games"> Wedstrijden </option>
+                <option value="starts"> Basisplekken </option>
+                <option value="subbed"> Wisselbeurten </option>
+                <option value="minutes"> Minuten Gespeeld </option>
+                <option value="yellow-cards"> Gele Kaarten </option>
+                <option value="red-cards"> Rode Kaarten </option>
+            </select>
+        </h3>
+
+        <div class="main-container">
+            <div class="graph-container goals">
+                <div id="pie-goals-container"></div>
+                <div id="column-goals-container"></div>
+                <div id="bar-goals-container"></div>
+            </div>
+            <div class="graph-container assists" style="display: none">
+                <div id="pie-assists-container"></div>
+                <div id="column-assists-container"></div>
+                <div id="bar-assists-container"></div>
+            </div>
+            <div class="graph-container games" style="display: none">
+                <div id="pie-games-container"></div>
+                <div id="column-games-container"></div>
+                <div id="bar-games-container"></div>
+            </div>
+            <div class="graph-container starts" style="display: none">
+                <div id="pie-starts-container"></div>
+                <div id="column-starts-container"></div>
+                <div id="bar-starts-container"></div>
+
+            </div>
+            <div class="graph-container subbed" style="display: none">
+                <div id="pie-subbed-container"></div>
+                <div id="column-subbed-container"></div>
+                <div id="bar-subbed-container"></div>
+
+            </div>
+            <div class="graph-container minutes" style="display: none">
+                <div id="pie-minutes-container"></div>
+                <div id="column-minutes-container"></div>
+                <div id="bar-minutes-container"></div>
+
+            </div>
+            <div class="graph-container yellow-cards" style="display: none">
+                <div id="pie-yellow-cards-container"></div>
+                <div id="column-yellow-cards-container"></div>
+                <div id="bar-yellow-cards-container"></div>
+
+            </div>
+            <div class="graph-container red-cards" style="display: none">
+                <div id="pie-red-cards-container"></div>
+                <div id="column-red-cards-container"></div>
+                <div id="bar-red-cards-container"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="graphs.js"></script>
+    <script src="retrieve.js"></script>
+
+</body>
+
+</html>
