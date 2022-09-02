@@ -45,5 +45,5 @@ nav.nav-bar h1 {
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
-    min-width: min(100vw, 420px);
+    min-width: 300px;
 }
