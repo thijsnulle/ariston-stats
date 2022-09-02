@@ -13,6 +13,7 @@ nav.nav-bar {
     height: 64px;
     width: 100vw;
     background: #7D1815;
+    text-align: center;
 }
 
 nav.nav-bar h1 {
