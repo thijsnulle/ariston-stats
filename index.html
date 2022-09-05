@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -17,65 +21,214 @@
     </nav>
 
     <div class="container">
-        <h3>Statistiek:
-            <select name="statistic" id="stat-select">
-                <option value="goals" selected> Doelpunten </option>
-                <option value="assists"> Assists </option>
-                <option value="games"> Wedstrijden </option>
-                <option value="starts"> Basisplekken </option>
-                <option value="subbed"> Wisselbeurten </option>
-                <option value="minutes"> Minuten Gespeeld </option>
-                <option value="yellow-cards"> Gele Kaarten </option>
-                <option value="red-cards"> Rode Kaarten </option>
-            </select>
-        </h3>
 
-        <div class="main-container">
-            <div class="graph-container goals">
-                <div id="pie-goals-container"></div>
-                <div id="column-goals-container"></div>
-                <div id="bar-goals-container"></div>
-            </div>
-            <div class="graph-container assists" style="display: none">
-                <div id="pie-assists-container"></div>
-                <div id="column-assists-container"></div>
-                <div id="bar-assists-container"></div>
-            </div>
-            <div class="graph-container games" style="display: none">
-                <div id="pie-games-container"></div>
-                <div id="column-games-container"></div>
-                <div id="bar-games-container"></div>
-            </div>
-            <div class="graph-container starts" style="display: none">
-                <div id="pie-starts-container"></div>
-                <div id="column-starts-container"></div>
-                <div id="bar-starts-container"></div>
+        <div class="tabs">
+            <ul>
+                <li title="line">
+                    <input type="radio" id="goals-line" name="tab-control-goals" checked>
+                    <label for="goals-line" role="button"><i class="fa-solid fa-chart-line"></i></label>
+                </li>
+                <li title="pie">
+                    <input type="radio" id="goals-pie" name="tab-control-goals">
+                    <label for="goals-pie" role="button"><i class="fa-solid fa-chart-pie"></i></label>
+                </li>
+                <li title="bar">
+                    <input type="radio" id="goals-bar" name="tab-control-goals">
+                    <label for="goals-bar" role="button"><i class="fa-solid fa-chart-bar"></i></label>
+                </li>
+                <li title="column">
+                    <input type="radio" id="goals-column" name="tab-control-goals">
+                    <label for="goals-column" role="button"><i class="fa-solid fa-chart-column"></i></label>
+                </li>
+            </ul>
 
-            </div>
-            <div class="graph-container subbed" style="display: none">
-                <div id="pie-subbed-container"></div>
-                <div id="column-subbed-container"></div>
-                <div id="bar-subbed-container"></div>
+            <div id="line-goals-container" class="graph line"></div>
+            <div id="pie-goals-container" class="graph pie"></div>
+            <div id="column-goals-container" class="graph column"></div>
+            <div id="bar-goals-container" class="graph bar"></div>
+        </div>
+        <div class="tabs">
 
-            </div>
-            <div class="graph-container minutes" style="display: none">
-                <div id="pie-minutes-container"></div>
-                <div id="column-minutes-container"></div>
-                <div id="bar-minutes-container"></div>
+            <ul>
+                <li title="line">
+                    <input type="radio" id="assists-line" name="tab-control-assists" checked>
+                    <label for="assists-line" role="button"><i class="fa-solid fa-chart-line"></i></label>
+                </li>
+                <li title="pie">
+                    <input type="radio" id="assists-pie" name="tab-control-assists">
+                    <label for="assists-pie" role="button"><i class="fa-solid fa-chart-pie"></i></label>
+                </li>
+                <li title="bar">
+                    <input type="radio" id="assists-bar" name="tab-control-assists">
+                    <label for="assists-bar" role="button"><i class="fa-solid fa-chart-bar"></i></label>
+                </li>
+                <li title="column">
+                    <input type="radio" id="assists-column" name="tab-control-assists">
+                    <label for="assists-column" role="button"><i class="fa-solid fa-chart-column"></i></label>
+                </li>
+            </ul>
 
-            </div>
-            <div class="graph-container yellow-cards" style="display: none">
-                <div id="pie-yellow-cards-container"></div>
-                <div id="column-yellow-cards-container"></div>
-                <div id="bar-yellow-cards-container"></div>
+            <div id="line-assists-container" class="graph line"></div>
+            <div id="pie-assists-container" class="graph pie"></div>
+            <div id="column-assists-container" class="graph column"></div>
+            <div id="bar-assists-container" class="graph bar"></div>
+        </div>
+        <div class="tabs">
+            <input type="radio" id="games-line" name="tab-control-games" checked>
+            <input type="radio" id="games-pie" name="tab-control-games">
+            <input type="radio" id="games-bar" name="tab-control-games">
+            <input type="radio" id="games-column" name="tab-control-games">
 
-            </div>
-            <div class="graph-container red-cards" style="display: none">
-                <div id="pie-red-cards-container"></div>
-                <div id="column-red-cards-container"></div>
-                <div id="bar-red-cards-container"></div>
+            <ul>
+                <li title="line">
+                    <label for="games-line" role="button"><i class="fa-solid fa-chart-line"></i></label>
+                </li>
+                <li title="pie">
+                    <label for="games-pie" role="button"><i class="fa-solid fa-chart-pie"></i></label>
+                </li>
+                <li title="bar">
+                    <label for="games-bar" role="button"><i class="fa-solid fa-chart-bar"></i></label>
+                </li>
+                <li title="column">
+                    <label for="games-column" role="button"><i class="fa-solid fa-chart-column"></i></label>
+                </li>
+            </ul>
 
-            </div>
+            <div id="line-games-container" class="graph line"></div>
+            <div id="pie-games-container" class="graph pie"></div>
+            <div id="column-games-container" class="graph column"></div>
+            <div id="bar-games-container" class="graph bar"></div>
+        </div>
+
+        <div class="tabs">
+            <input type="radio" id="starts-line" name="tab-control-starts" checked>
+            <input type="radio" id="starts-pie" name="tab-control-starts">
+            <input type="radio" id="starts-bar" name="tab-control-starts">
+            <input type="radio" id="starts-column" name="tab-control-starts">
+
+            <ul>
+                <li title="line">
+                    <label for="starts-pie" role="button"><i class="fa-solid fa-chart-line"></i></label>
+                </li>
+                <li title="pie">
+                    <label for="starts-pie" role="button"><i class="fa-solid fa-chart-pie"></i></label>
+                </li>
+                <li title="bar">
+                    <label for="starts-bar" role="button"><i class="fa-solid fa-chart-bar"></i></label>
+                </li>
+                <li title="column">
+                    <label for="starts-column" role="button"><i class="fa-solid fa-chart-column"></i></label>
+                </li>
+            </ul>
+
+            <div id="line-starts-container" class="graph line"></div>
+            <div id="pie-starts-container" class="graph pie"></div>
+            <div id="column-starts-container" class="graph column"></div>
+            <div id="bar-starts-container" class="graph bar"></div>
+        </div>
+        <div class="tabs">
+            <input type="radio" id="subbed-line" name="tab-control-subbed" checked>
+            <input type="radio" id="subbed-pie" name="tab-control-subbed">
+            <input type="radio" id="subbed-bar" name="tab-control-subbed">
+            <input type="radio" id="subbed-column" name="tab-control-subbed">
+
+            <ul>
+                <li title="line">
+                    <label for="subbed-line" role="button"><i class="fa-solid fa-chart-line"></i></label>
+                </li>
+                <li title="pie">
+                    <label for="subbed-pie" role="button"><i class="fa-solid fa-chart-pie"></i></label>
+                </li>
+                <li title="bar">
+                    <label for="subbed-bar" role="button"><i class="fa-solid fa-chart-bar"></i></label>
+                </li>
+                <li title="column">
+                    <label for="subbed-column" role="button"><i class="fa-solid fa-chart-column"></i></label>
+                </li>
+            </ul>
+
+            <div id="line-subbed-container" class="graph line"></div>
+            <div id="pie-subbed-container" class="graph pie"></div>
+            <div id="column-subbed-container" class="graph column"></div>
+            <div id="bar-subbed-container" class="graph bar"></div>
+        </div>
+        <div class="tabs">
+            <input type="radio" id="minutes-line" name="tab-control-minutes" checked>
+            <input type="radio" id="minutes-pie" name="tab-control-minutes">
+            <input type="radio" id="minutes-bar" name="tab-control-minutes">
+            <input type="radio" id="minutes-column" name="tab-control-minutes">
+
+            <ul>
+                <li title="line">
+                    <label for="minutes-line" role="button"><i class="fa-solid fa-chart-line"></i></label>
+                </li>
+                <li title="pie">
+                    <label for="minutes-pie" role="button"><i class="fa-solid fa-chart-pie"></i></label>
+                </li>
+                <li title="bar">
+                    <label for="minutes-bar" role="button"><i class="fa-solid fa-chart-bar"></i></label>
+                </li>
+                <li title="column">
+                    <label for="minutes-column" role="button"><i class="fa-solid fa-chart-column"></i></label>
+                </li>
+            </ul>
+
+            <div id="line-minutes-container" class="graph line"></div>
+            <div id="pie-minutes-container" class="graph pie"></div>
+            <div id="column-minutes-container" class="graph column"></div>
+            <div id="bar-minutes-container" class="graph bar"></div>
+        </div>
+        <div class="tabs">
+            <input type="radio" id="yellow-line" name="tab-control-yellow" checked>
+            <input type="radio" id="yellow-pie" name="tab-control-yellow">
+            <input type="radio" id="yellow-bar" name="tab-control-yellow">
+            <input type="radio" id="yellow-column" name="tab-control-yellow">
+
+            <ul>
+                <li title="line">
+                    <label for="yellow-line" role="button"><i class="fa-solid fa-chart-line"></i></label>
+                </li>
+                <li title="pie">
+                    <label for="yellow-pie" role="button"><i class="fa-solid fa-chart-pie"></i></label>
+                </li>
+                <li title="bar">
+                    <label for="yellow-bar" role="button"><i class="fa-solid fa-chart-bar"></i></label>
+                </li>
+                <li title="column">
+                    <label for="yellow-column" role="button"><i class="fa-solid fa-chart-column"></i></label>
+                </li>
+            </ul>
+
+            <div id="line-yellow-container" class="graph line"></div>
+            <div id="pie-yellow-container" class="graph pie"></div>
+            <div id="column-yellow-container" class="graph column"></div>
+            <div id="bar-yellow-container" class="graph bar"></div>
+        </div>
+        <div class="tabs">
+            <input type="radio" id="red-line" name="tab-control-red" checked>
+            <input type="radio" id="red-pie" name="tab-control-red">
+            <input type="radio" id="red-bar" name="tab-control-red">
+            <input type="radio" id="red-column" name="tab-control-red">
+
+            <ul>
+                <li title="line">
+                    <label for="red-line" role="button"><i class="fa-solid fa-chart-line"></i></label>
+                </li>
+                <li title="pie">
+                    <label for="red-pie" role="button"><i class="fa-solid fa-chart-pie"></i></label>
+                </li>
+                <li title="bar">
+                    <label for="red-bar" role="button"><i class="fa-solid fa-chart-bar"></i></label>
+                </li>
+                <li title="column">
+                    <label for="red-column" role="button"><i class="fa-solid fa-chart-column"></i></label>
+                </li>
+            </ul>
+
+            <div id="line-red-container" class="graph line"></div>
+            <div id="pie-red-container" class="graph pie"></div>
+            <div id="column-red-container" class="graph column"></div>
+            <div id="bar-red-container" class="graph bar"></div>
         </div>
 
     </div>
